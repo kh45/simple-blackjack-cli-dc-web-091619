@@ -52,6 +52,18 @@ end
 #####################################################
 
 def runner
-  # code runner here
+  welcome
+  handz = initial_round
+  until handz > 21 do
+    new_hand = hit?(handz)
+    if new_hand == handz
+      puts "Are you sure you want to stay?"
+      prompt_user
+      break if get_user_input == 's'
+    end
+    handz = new_hand
+    display_card_total(new_hand)
+  end
+  end_game(handz)
 end
     
